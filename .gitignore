@@ -1,0 +1,38 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# R / RStudio
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj.user/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data files (VERY IMPORTANT for bioinformatics)
+data/raw/*
+data/processed/*
+
+# Keep folder structure but not files
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Large sequencing files
+*.fastq
+*.fastq.gz
+*.fq
+*.bam
+*.sam
+
+# Kraken / Bracken outputs (can be huge)
+*.kraken
+*.report
+*.bracken
+
+# Temporary / logs
+*.log
+tmp/
