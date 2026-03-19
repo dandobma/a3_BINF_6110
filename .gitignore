@@ -13,9 +13,18 @@
 .DS_Store
 Thumbs.db
 
-# Data files (VERY IMPORTANT for bioinformatics)
+# Ignore raw sequencing data
 data/raw/*
-data/processed/*
+
+# Allow processed results (small files)
+!data/processed/
+!data/processed/**
+
+# Still ignore huge file types
+*.fastq
+*.fastq.gz
+*.bam
+*.sam
 
 # Keep folder structure but not files
 !data/raw/.gitkeep
