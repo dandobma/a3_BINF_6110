@@ -9,7 +9,7 @@
 set -e  # stop on error
 
 # WSL-native data directory (FAST)
-DATA_DIR="$HOME/6110Assignment3/data"
+DATA_DIR="$HOME/6110Assignment3/data/raw"
 mkdir -p "$DATA_DIR"
 cd "$DATA_DIR"
 
