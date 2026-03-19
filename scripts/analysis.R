@@ -5,6 +5,7 @@ library(readr)
 library(tidyr)
 library(phyloseq)
 library(ggplot2)
+library(vegan)
 
 
 # Set data directory to bracken output location
@@ -118,3 +119,90 @@ ggsave(
   height = 6,
   dpi = 300
 )
+
+####Alpha diversity####
+alpha_df <- estimate_richness(ps, measures = c("Shannon", "Simpson"))
+
+# Add metadata
+alpha_df$diet <- metadata[rownames(alpha_df), "diet"]
+
+alpha_df
+
+# Plot Shannon diversity
+ggplot(alpha_df, aes(x = diet, y = Shannon, fill = diet)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1) +
+  theme_bw() +
+  labs(
+    title = "Shannon Diversity by Diet",
+    x = "Diet",
+    y = "Shannon Diversity"
+  )
+
+# Save figure
+ggsave(
+  filename = "results/Shannon_diversity_by_diet.png",
+  width = 12,
+  height = 6,
+  dpi = 300
+)
+
+# Test output
+wilcox.test(Shannon ~ diet, data = alpha_df)
+
+# Plot Simpson diversity
+ggplot(alpha_df, aes(x = diet, y = Simpson, fill = diet)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1) +
+  theme_bw() +
+  labs(
+    title = "Simpson diversity by diet",
+    x = "Diet",
+    y = "Simpson diversity"
+  )
+
+# Save figure
+ggsave(
+  filename = "results/Simpson_diversity_by_diet.png",
+  width = 12,
+  height = 6,
+  dpi = 300
+)
+
+# Test output
+wilcox.test(Simpson ~ diet, data = alpha_df)
+
+####Beta diversity####
+# Calculate distance
+dist_mat <- distance
+
+# Ordination (PCoA)
+ord_df <- as.data.frame(ord$vectors)
+ord_df$Sample <- rownames(ord_df)
+ord_df$diet <- metadata[ord_df$Sample, "diet"]
+ord_df
+
+# Plot
+ggplot(ord_df, aes(x = Axis.1, y = Axis.2, color = diet)) +
+  geom_point(size = 4) +
+  theme_bw() +
+  labs(
+    title = "PCoA (Bray-Curtis) by diet",
+    x = "PCoA1",
+    y = "PCoA2"
+  )
+
+# Save
+ggsave(
+  filename = "results/PCoA_by_diet.png",
+  width = 12,
+  height = 6,
+  dpi = 300
+)
+
+# PERMANOVA
+sample_df <- data.frame(sample_data(ps))
+
+adonis2(dist_mat ~ diet, data = sample_df)
+
+####ANCOMBC####
