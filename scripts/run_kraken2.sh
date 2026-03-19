@@ -7,8 +7,8 @@
 set -e
 
 # Paths
-DATA_DIR="$HOME/6110Assignment3"
-DB_DIR="$HOME/kraken_db/k2_standard_08_GB_20260226"
+DATA_DIR="$HOME/6110Assignment3/data"
+DB_DIR="$HOME/kraken_db"
 OUT_DIR="$HOME/kraken_results"
 
 mkdir -p "$OUT_DIR"
