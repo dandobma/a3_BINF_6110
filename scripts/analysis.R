@@ -1,4 +1,8 @@
 ####Setup####
+#install.packages("BiocManager")
+#install.packages(c("remotes", "CVXR"))
+#BiocManager::install("ANCOMBC", ask = FALSE, update = TRUE)
+#BiocManager::install("microbiome")
 # Load libraries
 library(dplyr)
 library(readr)
@@ -6,6 +10,8 @@ library(tidyr)
 library(phyloseq)
 library(ggplot2)
 library(vegan)
+library(ANCOMBC)
+library(microbiome)
 
 
 # Set data directory to bracken output location
@@ -206,3 +212,37 @@ sample_df <- data.frame(sample_data(ps))
 adonis2(dist_mat ~ diet, data = sample_df)
 
 ####ANCOMBC####
+set.seed(123)
+
+ancom_out <- ancombc2(
+  data = ps,
+  fix_formula = "diet",
+  rand_formula = NULL,
+  p_adj_method = "BH",
+  pseudo_sens = TRUE,
+  prv_cut = 0.10,
+  lib_cut = 1000,
+  s0_perc = 0.05,
+  group = "diet",
+  struc_zero = TRUE,
+  neg_lb = TRUE,
+  alpha = 0.05,
+  n_cl = 1,
+  verbose = FALSE,
+  global = FALSE,
+  pairwise = FALSE,
+  dunnet = FALSE,
+  trend = FALSE,
+  iter_control = list(tol = 1e-2, max_iter = 20, verbose = FALSE),
+  em_control = list(tol = 1e-5, max_iter = 100)
+)
+
+# Extract results
+res_df <- ancom_out$res
+
+head(res_df)
+colnames(res_df)
+
+# Get significant taxa
+sig <- res_df[res_df$diff_dietvegan == TRUE, ]
+sig
