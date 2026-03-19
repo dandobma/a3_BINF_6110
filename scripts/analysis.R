@@ -12,6 +12,7 @@ library(ggplot2)
 library(vegan)
 library(ANCOMBC)
 library(microbiome)
+library(tidyverse)
 
 
 # Set data directory to bracken output location
@@ -246,3 +247,25 @@ colnames(res_df)
 # Get significant taxa
 sig <- res_df[res_df$diff_dietvegan == TRUE, ]
 sig
+
+#####Plotting ANCOMBC#####
+# Prepare data
+res_df$neg_log10_q <- -log10(res_df$q_dietvegan)
+
+# Plot
+ggplot(res_df, aes(x = lfc_dietvegan, y = neg_log10_q)) +
+  geom_point(alpha = 0.5) +
+  geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "red") +
+  theme_bw() +
+  labs(
+    title = "ANCOMBC Differential Abundance (Volcano Plot)",
+    x = "Log Fold Change (Vegan vs Omnivore)",
+    y = "-log10(q-value)"
+  )
+
+ggsave(
+  filename = "results/ANCOMBC_differential_abundance_volcplot.png",
+  width = 12,
+  height = 6,
+  dpi = 300
+)
