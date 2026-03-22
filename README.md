@@ -32,4 +32,19 @@ Beta diversity was assessed using Bray–Curtis dissimilarity, followed by princ
 
 Differential abundance analysis was performed using ANCOMBC2 (Lin & Peddada, 2020), which accounts for compositional bias in microbiome data. The model tested for differences in taxon abundance between vegan and omnivore groups, with p-values adjusted using the Benjamini–Hochberg method. Sensitivity analysis was enabled to assess the robustness of detected differences.
 
+# Results
+
+## Taxonomic Composition
+
+The relative abundance of microbial taxa varied substantially across samples, with several dominant species observed within individual microbiomes (Figure 1). Across both dietary groups, taxa such as Segatella copri and Faecalibacterium prausnitzii were among the most abundant species. Considerable inter-individual variation was observed, with some samples dominated by a single taxon, while others exhibited a more even distribution of species. While differences in taxonomic composition between vegan and omnivore samples were visually apparent, no consistent pattern of dominance was observed across all samples within each dietary group.
+
+!Figure 1](results/species_relative_abundance_barplot.png)
+
+### Figure 1. Relative abundance of the top 20 microbial species across samples.
+
+Stacked bar plot showing the relative abundance of the most abundant species in each sample, based on Bracken-estimated species-level counts. Each bar represents a sample, and colors correspond to individual taxa. Samples are grouped by dietary category (vegan or omnivore). Substantial inter-individual variation is observed, with certain taxa dominating specific samples.
+
+---
+
+## Alpha Diversity
 
