@@ -48,3 +48,41 @@ Stacked bar plot showing the relative abundance of the most abundant species in 
 
 ## Alpha Diversity
 
+Alpha diversity was assessed using Shannon and Simpson diversity indices (Figure 2). Shannon diversity values ranged across samples, with omnivore samples exhibiting greater variability compared to vegan samples, which appeared more tightly clustered. Simpson diversity showed a similar pattern. However, statistical testing using the Wilcoxon rank-sum test indicated no significant difference in alpha diversity between vegan and omnivore groups for either Shannon (W = 6, p = 0.7) or Simpson (W = 6, p = 0.7) indices.
+
+![Figure 2A](results/Shannon_diversity_by_diet.png)
+![Figure 2B](results/Simpson_diversity_by_diet.png)
+
+### Figure 2. Alpha diversity of gut microbiome samples by diet.
+
+Boxplots showing Shannon (left) and Simpson (right) diversity indices for vegan and omnivore samples. Individual data points represent samples. No statistically significant differences in alpha diversity were observed between dietary groups (Wilcoxon rank-sum test, p = 0.7 for both metrics).
+
+---
+
+## Beta Diversity
+
+Beta diversity analysis using Bray–Curtis dissimilarity and principal coordinates analysis (PCoA) revealed partial clustering of samples by diet (Figure 3). Some vegan and omnivore samples grouped together, suggesting potential differences in community composition. However, clustering was not consistent across all samples, and substantial overlap between dietary groups was observed. Permutational multivariate analysis of variance (PERMANOVA) indicated that diet explained approximately 21.6% of the variation in microbial community composition (R² = 0.216), but this effect was not statistically significant (p = 0.2).
+
+![Figure 3](results/PCoA_by_diet.png)
+
+### Figure 3. Principal coordinates analysis (PCoA) of Bray–Curtis dissimilarity.
+
+Ordination plot showing differences in microbial community composition across samples. Each point represents a sample, colored by dietary group (vegan or omnivore). Partial clustering by diet is observed, although overlap between groups indicates substantial inter-individual variability.
+
+---
+
+## Differential Abundance Analysis
+
+Differential abundance analysis was performed using ANCOMBC2 to identify taxa associated with dietary group (Figure 4). No taxa were found to be significantly differentially abundant between vegan and omnivore samples after correction for multiple testing and sensitivity analysis. Although some taxa exhibited differences in estimated abundance between groups, none met the threshold for statistical significance.
+
+![Figure 4](results/ANCOMBC_differential_abundance_volcplot.png)
+
+### Figure 4. Differential abundance analysis of microbial taxa using ANCOMBC2.
+
+Volcano plot showing log fold change (vegan vs. omnivore) versus statistical significance (-log10 q-value) for each taxon. The dashed line indicates the significance threshold (q = 0.05). No taxa were identified as significantly differentially abundant after multiple testing correction and sensitivity analysis.
+
+---
+
+# Discussion
+
+
