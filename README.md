@@ -38,7 +38,7 @@ Differential abundance analysis was performed using ANCOMBC2 (Lin & Peddada, 202
 
 The relative abundance of microbial taxa varied substantially across samples, with several dominant species observed within individual microbiomes (Figure 1). Across both dietary groups, taxa such as Segatella copri and Faecalibacterium prausnitzii were among the most abundant species. Considerable inter-individual variation was observed, with some samples dominated by a single taxon, while others exhibited a more even distribution of species. While differences in taxonomic composition between vegan and omnivore samples were visually apparent, no consistent pattern of dominance was observed across all samples within each dietary group.
 
-!Figure 1](results/species_relative_abundance_barplot.png)
+![Figure 1](results/species_relative_abundance_barplot.png)
 
 ### Figure 1. Relative abundance of the top 20 microbial species across samples.
 
