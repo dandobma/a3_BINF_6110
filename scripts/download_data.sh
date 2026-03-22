@@ -15,7 +15,7 @@ cd "$DATA_DIR"
 
 echo "Downloading SRA samples into $DATA_DIR"
 
-# Number of threads (adjust if needed)
+# Number of threads
 THREADS=6
 
 # List of SRR IDs
